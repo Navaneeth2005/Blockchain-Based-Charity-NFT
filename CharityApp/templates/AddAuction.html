@@ -1,0 +1,132 @@
+{% load static %}
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Blockchain-Powered Charity NFT Auctions</title>
+<meta name="keywords" content="" />
+<meta name="Premium Series" content="" />
+<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="screen" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter auction details");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter minimum amount");
+	formObj.t2.focus();
+	return false;
+	}
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please choose start date");
+	formObj.t3.focus();
+	return false;
+	}
+	
+	if(formObj.t4.value.length==0)
+	{
+	alert("Please choose end date");
+	formObj.t4.focus();
+	return false;
+	}
+	
+	return true;
+	}
+	</script>
+	<script language="javascript" type="text/javascript" src="{% static 'datetimepicker.js' %}">
+</script>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><span><center><font size="5" color="white"><br/>Blockchain-Powered Charity NFT Auctions: A Transparent and Immutable Platform for Donation Verification</font>
+
+</center></span></h1>
+		
+	</div>
+	<div id="menu">
+		<ul>      
+     <li><a href="{% url 'AddAuction' %}"><font size="4" color="white">Add Charity Auction</a></li>
+	 <li><a href="{% url 'ViewParticipate' %}"><font size="4" color="white">View Donor/Bidder Participation</a></li>
+	  <li><a href="{% url 'index' %}"><font size="4" color="white">Logout</a></li>
+   </ul>     
+		
+	</div>
+	
+</div>
+
+<div id="wrapper">
+	<!-- start page -->
+	<div id="page">
+		 <form name="f1" method="post" action="{% url 'AddAuctionAction' %}" onsubmit="return validate(this);">
+	{% csrf_token %}
+		<!-- start content -->
+		<div id="content">
+		<div class="flower"><img src="{% static 'images/tra.jpg' %}" alt="" width="800" height="200" /></center></div>
+			<br/><br/>
+			<div class="flower"><center><h1>
+			<font size="" align="center">
+			Add NFT Charity Auction Page</font><h1></div>
+			
+		
+			<center><font face="verdana" color="blue">{{ data|safe }}</center></font>
+		<br/>
+			<table align="center">
+<tr><td><font size="3" color="black">Auction&nbsp;Details</td><td><input type="text" name="t1" size="80"/></td></tr>
+<tr><td><font size="3" color="black">Minimum&nbsp;Charity&nbsp;Amount</td><td><input type="number" name="t2" size="15"/></td></tr>
+
+<tr><Td><font size="3" color="black">Start&nbsp;Date</td><td>
+<input name="t3" type="Text" id="demo1" maxlength="25" size="20" class="c2" ><a href="javascript:NewCal('demo1','ddmmyyyy',false,24)"><img src="{% static 'cal.gif' %}" width="16" height="16" border="0" alt="Pick a date"></a>
+	  		<span class="descriptions"></span>
+</td></tr>	
+
+<tr><Td><font size="3" color="black">End&nbsp;Date</td><td>
+<input name="t4" type="Text" id="demo2" maxlength="25" size="20" class="c2" ><a href="javascript:NewCal('demo2','ddmmyyyy',false,24)"><img src="{% static 'cal.gif' %}" width="16" height="16" border="0" alt="Pick a date"></a>
+	  		<span class="descriptions"></span>
+</td></tr>	
+
+<tr><td><font size="3" color="black">Auction&nbsp;Cause&nbsp;Category</td><td><select name="t5">
+<option value="Education">Education</option>
+<option value="Health">Health</option>
+<option value="Natural Disaster">Natural Disaster</option>
+<option value="Human Disaster">Human Disaster</option>
+<option value="Others">Others</option>
+</select>
+</td></tr>
+</td></tr>
+
+</td></tr>
+<tr><td></td><td><input type="submit" value="Submit"></td>
+</td></tr></table>
+</form>
+			</table>
+			</center><br /><div class="post">
+				
+				<div class="entry">
+					
+				</div>
+			</div>
+		</div>
+		<!-- end content -->
+		<!-- start sidebars -->
+		
+		<!-- end sidebars -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end page -->
+</div>
+</body>
+</html>
+
+
